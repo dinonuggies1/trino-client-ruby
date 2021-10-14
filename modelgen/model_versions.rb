@@ -264,6 +264,22 @@ module Trino::Client::ModelVersions
       end
     end
 
+    class << PartitionedOutputInfo =
+        Base.new(:rows_added, :pages_added, :output_buffer_peak_memory_usage)
+      def decode(hash)
+        unless hash.is_a?(Hash)
+          raise TypeError, "Can't convert #{hash.class} to Hash"
+        end
+        obj = allocate
+        obj.send(:initialize_struct,
+          hash["rowsAdded"],
+          hash["pagesAdded"],
+          hash["outputBufferPeakMemoryUsage"]
+        )
+        obj
+      end
+    end
+
     class ResourceGroupId < Array
       def initialize(array)
         super()
