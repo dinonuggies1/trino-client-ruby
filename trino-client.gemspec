@@ -1,7 +1,7 @@
 require File.expand_path 'lib/trino/client/version', File.dirname(__FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = "presto-client"
+  gem.name          = "trino-client"
   gem.version       = Trino::Client::VERSION
 
   gem.authors       = ["Sadayuki Furuhashi"]
